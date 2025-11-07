@@ -14,7 +14,7 @@ use tokio::time::sleep;
 #[derive(Debug, Clone)]
 pub struct AfricasTalkingClient {
     http_client: HttpClient,
-    config: Config,
+    pub config: Config,
 }
 
 impl AfricasTalkingClient {
@@ -57,6 +57,12 @@ impl AfricasTalkingClient {
     pub fn application(&self) -> ApplicationModule {
         ApplicationModule::new(self.clone())
     }
+
+        /// Get the SMS module
+    pub fn data(&self) -> DataModule {
+        DataModule::new(self.clone())
+    }   
+
     
     // Add more modules as they're implemented
     // pub fn voice(&self) -> VoiceModule { ... }

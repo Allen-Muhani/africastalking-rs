@@ -3,7 +3,7 @@
 use serde::{Deserialize, Serialize};
 
 /// Main error type for the AfricasTalking SDK
-#[derive(Debug, thiserror::Error)]
+#[derive(Debug, thiserror::Error, Deserialize)]
 pub enum AfricasTalkingError {
     /// HTTP request failed
     #[error("HTTP request failed: {0}")]
